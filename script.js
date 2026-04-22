@@ -100,6 +100,8 @@ const data = [
   },
 ];
 
+const productsInCart = [];
+
 const containerElement = document.querySelector(".container");
 let finalString = "";
 
@@ -137,6 +139,11 @@ for (let item of cardElems) {
     if (e.target.classList.contains("add-btn")) {
       e.target.classList.add("hidden");
       e.target.nextElementSibling.classList.remove("hidden");
+
+      const card = e.target.parentElement;
+      let category = card.children[1].children[0].textContent;
+      let name = card.children[1].children[1].textContent;
+      let price = card.children[1].children[2].textContent;
     }
   });
 }
