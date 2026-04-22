@@ -8,6 +8,8 @@ body {
   min-height: 100vh;
   font-family: sans-serif;
   padding: 20px;
+  display: flex;
+  align-items: start;
 }
 
 .container {
@@ -84,6 +86,11 @@ body {
   align-items: center;
   gap: 20px;
   cursor: pointer;
+}
+
+.cart {
+  width: 384px;
+  background-color: antiquewhite;
 }
 
 .hidden {

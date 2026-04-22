@@ -143,7 +143,16 @@ for (let item of cardElems) {
       const card = e.target.parentElement;
       let category = card.children[1].children[0].textContent;
       let name = card.children[1].children[1].textContent;
-      let price = card.children[1].children[2].textContent;
+      let price = +card.children[1].children[2].textContent.substring(1);
+
+      productsInCart.push({
+        quantity: 1,
+        category,
+        name,
+        price,
+      });
+
+      console.log(productsInCart);
     }
   });
 }
