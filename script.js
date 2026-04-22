@@ -115,9 +115,28 @@ data.forEach((item) => {
         <button class="add-btn">
           <img src="./assets/images/icon-add-to-cart.svg" alt="product image" /> add to cart
         </button>
+
+        <button class="quantity-btn hidden">
+          <span>➖</span>
+          <span>1</span>
+          <span>➕</span>
+        </button>
+      
       </div> `;
 
   finalString += template;
 });
 
 containerElement.innerHTML = finalString;
+
+const cardElems = document.querySelectorAll(".card");
+// console.log(cardElems);
+
+for (let item of cardElems) {
+  item.addEventListener("click", (e) => {
+    if (e.target.classList.contains("add-btn")) {
+      e.target.classList.add("hidden");
+      e.target.nextElementSibling.classList.remove("hidden");
+    }
+  });
+}

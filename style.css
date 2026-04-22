@@ -63,4 +63,19 @@ body {
   position: absolute;
   top: 218px;
   left: 45px;
+  cursor: pointer;
+}
+
+.quantity-btn {
+  position: absolute;
+  top: 218px;
+  left: 45px;
+  width: 160px;
+  height: 44px;
+  border-radius: 28px;
+  border: none;
+}
+
+.hidden {
+  display: none;
 }
