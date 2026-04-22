@@ -119,9 +119,9 @@ data.forEach((item) => {
         </button>
 
         <button class="quantity-btn hidden">
-          <span>➖</span>
+          <span class="decrease">➖</span>
           <span>1</span>
-          <span>➕</span>
+          <span class="increase">➕</span>
         </button>
       
       </div> `;
@@ -141,18 +141,49 @@ for (let item of cardElems) {
       e.target.nextElementSibling.classList.remove("hidden");
 
       const card = e.target.parentElement;
-      let category = card.children[1].children[0].textContent;
+      console.log(card.children[1].children[0].textContent);
       let name = card.children[1].children[1].textContent;
       let price = +card.children[1].children[2].textContent.substring(1);
 
-      productsInCart.push({
-        quantity: 1,
-        category,
-        name,
-        price,
+      productsInCart.push({ name, price, quantity: 1 });
+
+      renderCart();
+    } else if (e.target.classList.contains("decrease")) {
+      console.log(e.target);
+      console.log(e.target.nextElementSibling);
+    } else if (e.target.classList.contains("increase")) {
+      console.log(e.target);
+      console.log(e.target.previousElementSibling);
+      const productName = e.target.parentElement.parentElement.children[1].children[1].textContent;
+      const quantity = productsInCart.map((item) => {
+        if (item.name === productName) {
+          return item.quantity;
+        }
       });
 
-      console.log(productsInCart);
+      console.log(quantity);
     }
   });
+}
+
+function renderCart() {
+  let emptyCart = "";
+
+  if (productsInCart.length !== 0) {
+    productsInCart.forEach((item) => {
+      let templateString = `   <div class="product">
+        <h3 class="product-name">${item.name}</h3>
+        <div>
+          <span>${item.quantity}x</span>
+          <span>${item.price}$</span>
+          <span>${item.price * item.quantity}</span>
+        </div>
+      </div> `;
+
+      emptyCart += templateString;
+    });
+  }
+
+  const cartDiv = document.querySelector(".cart");
+  cartDiv.innerHTML = emptyCart;
 }
