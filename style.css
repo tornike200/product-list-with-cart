@@ -53,7 +53,8 @@ body {
 }
 
 .add-btn {
-  padding: 12.5px 28px;
+  width: 150px;
+  height: 44px;
   border-radius: 28px;
   border: 1px solid #ad8a85;
   background-color: #fff;
@@ -64,16 +65,25 @@ body {
   top: 218px;
   left: 45px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .quantity-btn {
   position: absolute;
   top: 218px;
   left: 45px;
-  width: 160px;
+  width: 150px;
   height: 44px;
   border-radius: 28px;
   border: none;
+  background-color: #f38767;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
 }
 
 .hidden {
